@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        table {
+            color: rgb(255, 45, 231);
+            background-color: rgb(245, 248, 97);
+        }
+    </style>
+</head>
+
+<body bgcolor="teal">
+    {{a}} {{b}} {{c}}
+    <form>
+        <h1 align="center">*** Welcome To My Calculator Program***</h1>
+        <table align="center">
+            <tr>
+                <td>Enter the first number:</td>
+                <td><input type="text" name="n1" value="{{a}}"></td>
+            </tr>
+            <tr>
+                <td>Enter the second number:</td>
+                <td><input type="text" name="n2" value="{{b}}"></td>
+            </tr>
+            <tr>
+                <td>Result:</td>
+                <td><input type="text" name="n3" value="{{c}}{{x}}{{y}}{{z}}"></td>
+            </tr>
+            <tr>
+                <td><button>Sum</button></td>
+                <td><button>Sub</button></td>
+                <td><button>Mul</button></td>
+                <td><button>Div</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
