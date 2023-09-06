@@ -1,0 +1,186 @@
+========================================Introduction Of Django==========================================>
+
+Python :-
+----------------
+>> python is a high level,interpreted,object oriented programming
+language.
+>> python was developed by 'Guido Van Rossum' in 1989.
+>> The first python version was released in 1991.
+---------------------------------------------------------------------
+python is programming language i.e. used to develop various kind of Application.
+	a) CUI.(Command User Interface) ->> DOS.(cmd)
+>> in this type application user must type each and every command.
+	b) GUI. (Graphical User Interface).
+		a) Desktop Application -->> Tkinter. (Windows Based Application)
+>> An Application that runs with the help of O.S that is known as Desktop application.
+---------------------------------------------------------------------
+Compatibility Issue ->>>
+-----------------------------------
+office package 32 bit ->>> O.S ->> 64 bit ->>>
+-------------------------------------------------------------------------------------------
+	        b) Web Application ->>
+>> An application that runs with the help of WebBrowser. 
+>> It can be access anywhere.
+>> Web Application follows Client-Server Architecture.
+		c) Mobile Application ->> Kiwy.	
+-------------------------------------------------------------------------------
+def add(a,b):  // BLL
+     return a+b
+
+
+res=add(10,20) // PLL
+print(res) // 30
+------------------------------------------------------------
+DJANGO:-
+----------------------------
+>> Django is a web development framework that follows MVT architecture.
+>> django separate your application into three main layer. 
+	a) PLL - Presentation Logic Layer
+	b) BLL - Business Logic Layer
+	c) DAL - Data Access Layer.
+--------------------------------------------------------------------------------------
+M ->> Model ->> DAL ->> classes and all database related operation.
+V ->> View  ->  BLL ->> program related logic.
+>> View is the main layer in django. view interact both model and template.
+>> it is the heart of django.
+---------------------------------------------------------------------------------------
+T ->> Template -> PLL - > html,css,js,jquery,bootstrap (user view) (UI)
+---------------------------------------------------------------------------------------
+https://www.facebook.com/
+def home():
+-----------------------------------------------------------------------------
+https://www.python.org/ ->> to download python
+-----------------------------------------------------------------------------
+Editor:-
+---------------------
+1. Pycharm
+2. Visual Studio Code. ->> light weight.
+-----------------------------------------------------------------------------
+Error:-  'python' is not recognized as an internal or external command:-
+----------------------------------------------------------------------------------
+1. Set Enviornmental Variable of python and pip.
+C:\Users\mahadev\AppData\Local\Programs\Python\Python310\  ->> python
+C:\Users\mahadev\AppData\Local\Programs\Python\Python310\Scripts  -->>> pip
+--------------------------------------------------
+Command to check python version:-
+---------------------------------------
+python --version
+--------------------------------------
+Command to check pip version:-
+----------------------------------------
+pip --version
+-----------------------------------------
+
+
+=================================> How To Work Django <=========================================>
+
+How to work with Django:-
+----------------------------------------------------
+Project-1
+--------------------
+   Python -->>> 8.6.0
+   Django
+   pillow
+   numpy
+-----------------------------------------------
+Project-2  + Project1
+----------------------
+Python ->> 8.6.0
+Django
+pandas
+tensorflow
+requests   + Pillow + Numpy
+-------------------------------
+Project-3
+-- Python 8.6.0
+-- Django
+-- rest_framework
+-- scipy  +  pillow +  numpy  pandas + tensorflow +requests  
+-----------------------------------------------------------------------------
+Instead of working Globally we work Locally.
+-------------------------------------------------------------------
+Project-4
+--------------------------
+>> Create Virtual Environment. -> It provides isloation for your Project.
+>>     venv ->> Foldername ->> any foldername
+        python 10.3.1 ->> Getting from Global Python Folder.
+	pip ->> Empty (Nothing)
+------------------------------------------------------------------------
+How to create Virtual Enviornment:-
+------------------------------------------------------------------------
+Step-1:-  network@1.:
+--------------------
+1. pip install virtualenv.  --> Command to install virtual env.
+Command to check virtualenv version-
+virtualenv --version
+2. Create a Project Folder any drive.
+3. Open your project Folder with command prompt.
+4. Command to create Virtual Env:-
+virtualenv anyFolderName
+virtualenv venv
+5. How to activate VE:-
+--------------------------------------------------
+venv\scripts\activate
+-----------------------------------------------------
+6. Command to check your project is connected locally or Globally.
+pip freeze
+-----------------------
+7. How to  activate or deactivate your project from VE.
+deactivate
+----------------------------------------------------------
+Steps to create Project in Django:-
+--------------------------------------
+1. pip install django 
+Command to check django version:-
+django-admin --version
+--------------------------------------------------
+2. Command to create project in Django:-
+-------------------------------------------------
+django-admin startproject ProjectName
+------------------------------------------------------------------
+https://code.visualstudio.com/download ->> to install vs code
+----------------------------------------------------------------------------------------
+Open your Project in VS Code ->> RootFolder of your project
+-------------------------------------------------------------------------
+"terminal.integrated.shell.windows": "c://windows//system32//cmd.exe", ->> to connect your terminal with cmd.
+-----------------------------
+1. install django 
+-------------------------
+When you successFully installed django in your project then it will automatically provide development server for you.
+----------------------------------------------------------
+How to Run Django Development Server:-
+--------------------------------------------------------------------------
+python manage.py runserver  ->>> http://127.0.0.1:8000/ or http://127.0.0.1:8000/
+---------------------------------------------------------------------------
+
+
+==========================================> How To Create URL In Django <============================>
+How to Open Your Django Project:-
+----------------------------------------
+1. Open Visual Studio Code -> File -> OpenFolder -> Root Folder of your Project
+2. Using Command Prompt.
+------------------------------------------
+How to activate your terminal permanently with VE:-
+------------------------------------------------------------
+BaseURL -> http://127.0.0.1:8000/
+http://127.0.0.1:8000/
+-------------------------------------------------------------
+path('urlmapping',functionname)
+----------------------------------------------------------------
+
+
+Server has multiple classes to handle client request:-
+--------------------
+1. HttpRequest Class -> 
+This class is used to read Client data at server Machine.
+2. HttpResponse Class ->
+This class is used to send server data at client Machine(Web Browser).
+-------------------------------------------------------------------------------------
+Procedure to map your page with URL:-
+-----------------------------------------------
+path(urlmapping,functionname)
+------------------------------------------
+path('abc/',sum) #http://127.0.0.1:8000/abc/
+------------------------------------------------
+View ->> View is a special function that accept httpRequest class Object and always return HttpResponse class object.
+----------------------------------------------------
