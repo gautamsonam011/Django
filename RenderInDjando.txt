@@ -1,0 +1,58 @@
+====================>How to Render Template in Django:-
+--------------------------------------------
+1. Go to Settings.py ->>> 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+2. Now Create 'templates' name folder in your Root Folder Project.
+3. Now you can Create N number of Html File inside templates folder.
+---------------------------------------------------------------------------
+calculator.html
+-----------------------
+1. How to read client Data at Server Machine:-
+--------------------------------------------------------
+<input type="text" name="t1">  "name attribute work as a key in django"
+
+request.GET
+       .POST
+------------------
+a=request.GET["t1"] ->> it will show an error. if key is not found then error.
+a=10
+or
+a=request.GET.get("t1","NA") ->> Best
+------------------------------------------------------------------------------------
+How to send Client Data to Server:-
+----------------------------------------
+1. use <form></form> tag.
+2. We have following methods in form to send data to the server:
+get,post,put,patch,delete,options and so on.
+Note:-> In form tag if you don't provide method attribute then by default form tag uses Get request.
+If you send data while using get method it everything will be display in URL it is known as
+urlre-writing or Query String.
+http://127.0.0.1:8000/calc/?t1=10&t2=20&t3=40
+-----------------------------------------------------------------------------------------------------
+<form>
+</form>
+---------------------------------------
+2. How to transfer server data to the client Machine.
+1. Make a dictionary -> Whatever the data you send to the client machine pass all data into dictionary.
+d1={'a':a,'b':b,'c':c}
+2. Pass this dictionary to the render method.
+resp=render(request,'calculator.html',context=d1)
+-------------------------------------------------------------------------
+3. How to use this passing dictionary in html file:-
+{{ -> Open Variable 
+}} -> Close Variable
+{{a}},{{b}},{{c}}
