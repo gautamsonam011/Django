@@ -24,13 +24,11 @@ def cal(request):
     b = int(request.GET.get('n2',0))
     # c = request.GET.get('n3','NA')
     c = a+b
-    x = a-b
-    y = a*b
-    z = a/b
     # print("a=",a,"b=",b,"c=",c)
-    d1 = {'a':a,'b':b,'c':c,'x':x,'y':y,'z':z}
+    d1 = {'a':a,'b':b,'c':c}
     resp = render(request,"calculator.html", context=d1)
     return resp
+    
 # path(urlMapping,functionName)
 urlpatterns = [
     path('admin/', admin.site.urls),
