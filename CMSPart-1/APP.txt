@@ -1,0 +1,211 @@
+Project in django:-
+-------------------------
+django-admin startproject projectname
+------------------------------------------------------
+Django Apps:-
+---------------------------
+How to create an app in Django:-
+-----------------------------------------
+Command to create an app:-
+---------------------------------------
+1. python manage.py startapp app_name
+2. Register your App-
+		Go to settings.py ->> 
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'CMS',  ->> Register your app
+]
+-------------------------------------------
+3. URL Mapping ->> Project to app
+------------------------------------------
+How to travel project to app or (URL Mapping project to App)
+---------------------------------------------
+ROOT_URLCONF = 'CetpaLiveProject.urls'
+------------------------------------------------
+Project ->> urls.py
+------------------------------------------------
+path(urlmapping,function_name)
+-------------------------------------------------
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('sum/<int:a>/<int:b>/',sum), #http://127.0.0.1:8000/sum/
+    path('sub/',sub), #http://127.0.0.1:8000/xyz/
+    path('mult/',mult),
+    path('calc/',view_calc),
+    path('simple/',view_simple_calc),
+    path('cms/',include('CMS.urls')),  # http://127.0.0.1:8000/cms/
+]
+-----------------------------------------------------------------
+3. Create one file urls.py in your app
+CMS.urls:-
+-------------------
+from django.urls import path
+
+#Base URL =>> http://127.0.0.1:8000/cms/
+
+
+urlpatterns = [
+    
+]
+
+How to project in Django-> Done
+How to create an app -> Done.
+------------------------------------------------
+How to create Template in your app:-
+-------------------------------------------------
+1. Create a folder in your app names as 'templates'.
+2. Create another folder name as your appname inside templates folder.
+3. Now you can create N number of Html File.
+-------------------------------------------------------------------------------------
+DTL:-
+------------
+>> DTL stands for Django Template Language.
+>> DTL is used to make your html pages dynamic.
+>> DTL works at server side.
+-----------------------------------------------------------------------------------
+Comparision between Python and DTL:-
+------------------------------------------------------
+Python                                                   DTL
+------------------------------------------------------------------------------------
+1. python we use variable.                      1. DTL also we make variable.
+2. Data type work here.                         2. There is no concept of Data type.
+3. Operator work here.                          3. Operator also work in DTL.    
+                                                        Boolean Operator. and or not
+                                                 ==,!= , < <= > >= in not in, is,is not
+4. Condition Statement work                      4. Conditional Statement work
+here -> if ,if-elif-else				here -> if ,if-elif-else
+5. Loop work here. 				 5. here support only for-element loop.		
+For-range()
+for-element()
+6. Functions work here.                          6. Instead of function here support ->  Tags and 							Filter.
+----------------------------------------------------------------------------------------------------
+Argument	Outputs
+openblock	{%
+closeblock	%}
+openvariable	{{
+closevariable	}}
+openbrace	{
+closebrace	}
+opencomment	{#
+closecomment	#}
+-------------------------------------------
+{{ variablename/keyname }}
+------------------------------------------
+Conditional Statements in DTL:-
+----------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTL</title>
+</head>
+<body bgcolor="yellow">
+    <h1> **Example of DTL - (Django Template Language) ** </h1>
+    {{a}}
+    {% if a = 500 %}
+    <h2>{{a}} is equal to 500</h2>
+    {% else %}
+    <h2>{{a}} is not equal to 500</h2>
+    {% endif %}
+</body>
+</html>
+---------------------------------------------------------------
+{% tags/Filter %}
+if-else
+--------------
+{% if condition %}
+    statement1
+{% else %}
+    statement2
+{% endif %}
+---------------------------------------------------------
+wap to find the greatest no. among them in two no.
+---------------------------------------------------------
+def view_dtl(request):
+    d1={'a':100,'b':800}
+    resp=render(request,'CMS/dtl.html',context=d1)
+    return resp 
+-----------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTL</title>
+</head>
+<body bgcolor="yellow">
+    <h1> **Example of DTL - (Django Template Language) ** </h1>
+    {{a}}
+    {% if a > b %}
+    <h2>{{a}} is Greater than {{b}}</h2>
+    {% else %}
+    <h2>{{b}} is Greater than {{a}}</h2>
+    {% endif %}
+</body>
+</html>
+---------------------------------------------------------------
+wap to find the greatest no. among them in three no.
+-----------------------------------------------------------
+if-elif-else
+-----------------------
+{% if condition1 %}
+statement1
+{% elif condition2 %}
+statement2
+{% elif condition3 %}
+statement3
+{% elif condition4 %}
+statement4
+{% else %}
+statement5
+{% endif %}
+-------------------------------------------------------------------------
+def view_dtl(request):
+    d1={'a':1000,'b':800,'c':120}
+    resp=render(request,'CMS/dtl.html',context=d1)
+    return resp  
+-----------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTL</title>
+</head>
+<body bgcolor="yellow">
+    <h1> **Example of DTL - (Django Template Language) ** </h1>
+    {{a}}
+    {% if a > b and a > c %}
+    <h2>{{a}} is Greater than {{b}} and {{c}} </h2>
+    {% elif b > a and b > c %}
+    <h2>{{b}} is Greater than {{a}} and {{c}}</h2>
+    {% else %}
+    <h2>{{c}} is Greater than {{a}} and {{b}}</h2>
+    {% endif %}
+</body>
+</html>
+-------------------------------------------------------------------------------
+1. wap to input a character and check its vowel or consonant using DTL.
+2. Wap to create two textbox and check smallest no. among them.
+3. Wap to create three textbox and check smallest no. among them.
+----------------------------------------------------------------------------
+LOOP:-
+-------------
+In DTL only Element loop is support.
+{% for element in collection %}
+statements
+{% endfor %}
+-----------------------
+1. wap to print welcome to Python 10 times.
+2. wap to print 20 to 1 number using DTL.

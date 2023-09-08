@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Template Lanquage</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            text-align:center;
+            color:brown;
+        }
+        h3{
+            margin-top: 5rem;
+            text-align:center;
+            color:rgb(28, 214, 28);
+        }
+        h2{
+            margin-top: 1rem;
+            text-align:center;
+            color:rgb(235, 73, 206); 
+        }
+        h4{
+            text-align:center;
+            color:rgb(8, 94, 106);
+        }
+        h5{
+            text-align:center;
+            color:rgb(245, 54, 77); 
+        }
+    </style>
+</head>
+<body>
+    <h1>**Hi! Welcome To Django Template Language**</h1>
+    <h3>Variable Value {{x}}</h3> <br>
+    <h3>CSRF Token Value {{csrf_token}}</h3>
+    {% if x == 400 %}
+    <h2>{{x}} It is equal to 400</h2>
+    {% else %}
+    <h2>{{x}} It is not equal to 400</h2>
+    {% endif %}
+
+    <!-- wap to find the greatest number among them in two number.  -->
+    {% if a > b %}
+    <h2>{{a}} is greater than {{b}}</h2>
+    {% else %}
+    <h2>{{b}} is greater than {{a}}</h2>
+    {% endif %}
+
+    <!-- wap to find the greatest number among them in two number.  -->
+    {% if a > b and a > c %}
+    <h2>{{a}} is greater than {{b}},{{c}}</h2>
+    {% elif b > a and b > c %}
+    <h2>{{b}} is greater than {{a}},{{c}}</h2>
+    {% else %}
+    <h2>{{c}} is greater than {{a}},{{b}}</h2>
+    {% endif %}
+
+    <h1>Loop:-</h1>
+    <!-- write a program to print welcome to python 10 items.  -->
+    {% for hi in res %}
+    <h4>Hi! Python Loop {{hi}}</h4>
+    {% endfor %}
+
+    <!-- 2. wap to print 20 to 1 number using DTL.  -->
+    {% for hey in result %}
+    <h5>Hey! @20 to @1 {{hey}}</h5>
+    {% endfor %}
+</body>
+</html>
