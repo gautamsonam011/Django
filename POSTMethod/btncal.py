@@ -32,20 +32,21 @@ from django.http import HttpResponse
 
 def get_Numeric_Number(request):
     list_button = ['t1','t2','t3','t4','t5','t6','t7','t8','t9','t0']
-    for i in list_button:
-        return i[3]
-    return '-1'           
+   for b in list_button:
+        if b in request.POST:
+            return b[1] 
+    return '-1' 
 def btn_cal(request):
-    if request.method == "GET":
-        resp = render(request,"calculator.html")
+    if request.method=='GET':
+        resp=render(request,'calcbtn.html')
         return resp
-    elif request.method == "POST":
-        msg = request.POST.get('res',0)
-        check_no = get_Numeric_Number(request)
-        if (check_no != -1):
-            msg =msg+check_no
-            d1 = {'msg':msg}
-            resp = render(request,'calbtn.html',context=d1)
+    elif request.method=='POST':
+        msg=request.POST.get('res','')
+        check_no=get_Numeric_Number(request)
+        if(check_no!='-1'): # '8'!='-1'  true
+            msg=msg+check_no # msg=''+'8' msg='8'
+            d1={'msg':msg}
+            resp=render(request,'calcbtn.html',context=d1)
             return resp
         
      
