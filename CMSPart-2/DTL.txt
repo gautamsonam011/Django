@@ -1,0 +1,67 @@
+DTL:-  Django Template Language.
+-----------------------------------------------------
+Loop:-
+----------------
+WAP to show dummy Employee Records:-
+---------------------------------------------------
+The for loop sets a number of variables available within the loop:
+
+Variable	Description
+forloop.counter	The current iteration of the loop (1-indexed)
+forloop.counter0	The current iteration of the loop (0-indexed)
+forloop.revcounter	The number of iterations from the end of the loop (1-indexed)
+forloop.revcounter0	The number of iterations from the end of the loop (0-indexed)
+forloop.first	True if this is the first time through the loop
+forloop.last	True if this is the last time through the loop
+forloop.parentloop	For nested loops, this is the loop surrounding the current one
+-------------------------------------------------------------------------------------------------
+Database Connectivity in Django:-
+-----------------------------------------------------
+Data -> any raw material facts and figure.
+Information -> Processed data is know as information.
+Database -> It is collection of table. (it is a collection of interrelated data).
+----------------------------------------------------------------------------------------
+File -> File is used for keeping a record. ->> file is not useful.
+--------------------------------------------------------------------------------------
+DBMS -> Database Management System.
+------------------------------------------------------------------------------
+Database Name:-
+-------------------------
+MsAccess,MySQL,SQLServer,Oracle,Sqlite,PostgreSql,DB2,Sybase,MongoDB etc.
+---------------------------------------------------------------------------------
+Models ->> Models are the special classes that is used to create table and perform 
+database operations.
+---------------------------------------------------------------------------------------
+I have Following table name as Employee having following fields:-
+Employee -> eid,name,age,address,city,salary
+--------------------------------------------------------------------------
+create table Employee
+(
+eid int,
+name varchar(50),
+age int,
+address varchar(343),
+city varchar(23),
+salary decimal(12,4)
+)
+MySQL:-
+-------------
+insert command in mysql:-
+--------------------------------
+insert into employee values(101,'ravi',12,'new ashok nagar',34333)
+------------------------------------------------------------------------
+ORM: Object Relational Mapping
+------------------------------------------
+class Employee(models.Model):
+       name=models.CharField(max_length=50)
+       age=models.IntegerField()
+       city=models.CharField(max_length=50)
+------------------------
+Insert Record using ORM:-
+----------------------------------
+emp=Employee()
+emp.name='raj'
+emp.age=23
+emp.city='noida'
+emp.save() ->>> raj added into your employee table.
+--------------------------------------------------------------------
