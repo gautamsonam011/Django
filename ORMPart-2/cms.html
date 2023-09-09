@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        h1{
+            text-align: center;
+            color: chocolate;
+        }
+        body{
+            background-color: rgb(178, 249, 228);
+        }
+        table{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid rgb(192, 255, 197);
+            background-color: pink;
+        }
+        td,th{
+            border: 2px solid rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <h1>CUSTOMER MANAGEMENT SYSTEM</h1>
+        <div class="container">
+        <div>
+            <label>Customer ID:</label>
+            <input type="text" name = "txtid" value="{{cus.id}}" class="form-control">
+        </div>
+        <div>
+            <label>Customer Name:</label>
+            <input type="text" name = "txtname" value="{{cus.name}}" class="form-control">
+        </div>
+        <div>
+            <label>Customer Age:</label>
+            <input type="text" name = "txtage" value="{{cus.age}}" class="form-control">
+        </div>
+        <div>
+            <label>Customer MobileNo:</label>
+            <input type="number" name = "txtno" value="{{cus.mobileno}}" class="form-control">
+        </div>
+        <div>
+            <label>Customer Address:</label>
+            <input type="text" name = "txtaddress" value="{{cus.address}}" class="form-control">
+        </div>
+        <div>
+            <button name = "btnadd" class="form-control bg-primary mt-2">Add Customer</button>
+            <button name = "btnsearch" class="form-control bg-secondary mt-2">Search Customer</button>
+            <button name = "btnupdate" class="form-control bg-warning mt-2">Update Customer</button>
+            <button name = "btndelete" class="form-control bg-danger mt-2">Delete Customer</button>
+            <button name = "btnshow" class="form-control bg-success mt-2">Show Customers</button>
+        </div>
+        <br>
+        <table>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>MobileNo</th>
+                <th>Address</th>
+            </tr>
+            {% for cus in customers %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{cus.name}}</td>
+                <td>{{cus.age}}</td>
+                <td>{{cus.mobileno}}</td>
+                <td>{{cus.address}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+</html>

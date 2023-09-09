@@ -1,0 +1,54 @@
+Add(POST)------------->
+from CMS.models import Customer
+cus = Customer()
+cus.name = 'xyz'
+cus.age = 23
+cus.mobileno = 783653
+cus.address = 'Delhi'
+cus.save()
+
+Update----->
+from CMS.models import Customer
+>>> cus = Customer.object.get(id=2)
+>>> cus = Customer.objects.get(id = 3)
+>>> cus.name
+'Anu'
+>>> cus.age
+23
+
+Database Connectivity in Django:-
+---------------------------------------
+Model - Done.
+-----------------
+Add Customer -- Done
+Search Customer - on the basis of id.
+---------------------------------------------------
+MYSql --
+select * from tablename where id=5
+----------------------------------------------
+ORM Query:-
+--------------------
+get():-
+--------------------- 
+>> This method retrieve unique record from the table.
+>> it doesn't return duplicate/multiple value.
+--------------------------------------------------------------
+cus=Customer.objects.get(id=4) -> 
+cus.name ->> atul
+cus.age -> 20
+------------------------------------------------
+>>> from CMS.models import Customer
+>>> c=Customer.objects.get(id=4) 
+>>> c.name
+'atul'
+>>> c.age
+20  
+>>> c.address
+'tilak nagar'
+>>> c.mobileno
+'97797979'
+>>>
+----------------------------------------------------------
+Show All customer:-
+------------------------
+cus=Customer.objects.all()
