@@ -73,7 +73,7 @@ class Customer(models.Model):
 ---------------------------------
 >>> from CMS.models import Customer
 >>> cus=Customer()
->>> cus.name='pankaj'
+>>> cus.name='xyz'
 >>> cus.age=19
 >>> cus.mobileno='6876868'
 >>> cus.address='new ashok nagar' 
@@ -88,22 +88,22 @@ Traceback (most recent call last):
 NameError: name 'Customer' is not defined
 >>> from CMS.models import Customer
 >>> cus=Customer()
->>> cus.name='pankaj'
+>>> cus.name='xyz'
 >>> cus.age=19
 >>> cus.mobileno='6876868'
 >>> cus.address='new ashok nagar'
 >>> cus.save()
->>> cus.name='pankaj kumar'
+>>> cus.name='sghj'
 >>> cus.save()
 >>> c=Customer()
->>> c.name='Anurag'
+>>> c.name='shiv'
 >>> c.age=23
 >>> c.mobileno='8686833'
 >>> c.address='kirti nagar'
 >>> c.save()
 >>> c.name='ccc.c.save()c.address='kirti nagar'c.mobileno='8686833'c.address='kirti nagar'c.save()
 KeyboardInterrupt
->>> c.name='Kajal'
+>>> c.name='Kavi'
 >>> c.save()
 ---------------------------------------------------------------------------------
 class Employee(models.Model):  // Model Class
