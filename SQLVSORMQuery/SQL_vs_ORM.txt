@@ -1,0 +1,142 @@
+SQL VS ORM QUERY:-
+-------------------------------------------
+1. Sql -> 
+create table tablename
+(
+colname1 datatype1,
+colname2 datatype2,
+.
+.
+.
+colnameN datatypeN
+)
+----------------------------------------------------------
+1. ORM :-  cms_employee
+---------------------------
+class Employee(models.Model):
+    name=models.CharField(max_length=50)
+    age=models.IntegerField()
+    address=models.CharField(max_length=200)
+    salary=models.IntegerField()
+    post=models.CharField(max_length=50)
+    def _str_(self):
+        return self.name
+-----------------------------------------------------------------
+Insert Record:-
+--------------------------
+1. SQL :-
+----------------
+insert into tablename values(value1,value2,value3..........valueN)
+----------------------------------------------------------------------------------------
+2. ORM :-
+---------------------
+emp=Employee()
+emp.name='ganesh'
+emp.age=19
+emp.address='new ashok nagar'
+emp.salary=45000
+emp.post='SE'
+emp.save() ->> ganesh
+----------------------------------------------------
+or
+-----------
+Django Model has 'Manager Objects' by which you can perform all database related operations.
+Employee.objects ->> Manager Object
+Employee.objects.
+1) create()  -->> Done
+2) get()  ->> Done
+3) filter() -> Done
+4) all() ->> Done
+5) exclude() -> Done
+--------------------------------------------------------------------------------------------
+emp=Employee.objects.create(name='prayas',age=21,address='tilak nagar',salary=50000,post='TL')
+print(type(emp)) ->>> Model class Object ->> prayas -> <class 'CMS.models.Employee'>
+-----------------------------------------------------------------------------------------------
+How to retreive single record from the table:-
+-------------------------
+1. Sql -> Select * from tablename where eid=4
+------------------------------------------------------------------------------
+1. ORM ->
+----------------------
+get() -
+>> it returns single record from the table and if its found duplicate data then it give an error.
+>> it only fetch unique record from the table.
+>> it is case-sensitive function.
+-------------------------------------------------------------------------------
+e=Employee.objects.get(id=2)
+e.name ->
+e.age ->
+------------------------------------------------
+3) filter()
+>> it returns more than one record from the table.
+>> filter(Comma Separated Keyword Arguments)
+--------------------------------------------------------------------------------------
+1. waq to get employee details whose salary is less than 30000.
+SQL ->> select * from tablename where salary<30000
+2. ORM :-
+------------
+Employee.objects.filter(salary<30000)  ->> Error
+t=Employee.objects.filter(salary__lt=30000) ->> <class 'django.db.models.query.QuerySet'>
+for emp in t:
+    print(emp.name,emp.age,emp.address,emp.salary,emp.post)
+--------------------------------------------------------------------------------
+lt -> Less Than
+lte -> Less than or equal to
+gt -> Greater Than
+gte -> Greater than or equal to
+-----------------------------------------------------------------------------------
+2. waq to get employee details whose salary is less than 25000 and greater than 10000.
+SQL -> select * from tablename where salary<35000 and salary>10000
+ORM -
+---------------
+Employee.objects.filter(salary__gt=10000,salary_lt=25000)
+or
+g=Employee.objects.filter(salary_lt=25000,salary_gt=10000) 
+------------------------------------------------------------------------
+3. waq to get all employee details whose name start from p.
+select * from tablename where ename like 'p%'
+---------------------------------------------------------------------------
+Contains - it is not case sensitive.
+ORM -> Employee.objects.filter(name__contains='p')
+t=Employee.objects.filter(name__contains='a')  -> QuerySet
+-------------------------------------------------------------------------------
+Exact() -> It is case Sensitive.
+---------------------------------------------
+r=Employee.objects.filter(name__exact='ganesh')  
+-------------------------------------------------------------------------------
+1. waq to get all employee details whose name start from a.
+startswith -> it is not case sensitive.
+Employee.objects.filter(name__startswith='a')
+--------------------------------------------------------
+2. waq to get all employee details whose name ends with a.
+endswith ->>  it is case-insensitive.
+------------------------------------------------------------
+Employee.objects.filter(name__endswith=='a')
+------------------------------------------------------------
+4. all()
+>> it returns all record from the table.
+>> its return type is Query Set.
+------------------------------------------------------------
+Employee.objects.all()  ->> Query Set.
+------------------------------------------------------------
+5) exclude() -> It is case sensitive.
+Employee.objects.exclude(name='ganesh') -> it returns all record except ganesh.
+----------------------------------------------------------------------------------------------
+Brief:-
+--------------------------
+1. create()
+2. get()
+3. filter()
+4. all()
+5. exclude()
+--------------------------------------------
+lt  ->
+lte ->
+gt ->
+gte ->
+-----------------------------------------
+contains()
+exact()
+startswith()
+endswith()
+---------------------------------------------
