@@ -13,11 +13,16 @@
     Select Course:
     <select name="courses">
         {% for course in courses %}
+        {% if course.id == cid %}
+        <option value="{{course.id}}" selected>{{course.name}}</option>
+        {% else %}
         <option value="{{course.id}}">{{course.name}}</option>
+        {% endif %}
        {% endfor %}
     </select>
-<button>Get Student Details</button>
+<!-- <button>Get Student Details</button> -->
 <br/><br/>
+<h2>We Have Following Student of  {{cname}} </h2>
 <table>
     <tr>
         <th>S.NO.</th>
@@ -27,11 +32,13 @@
     </tr>
     {% for stu in students %}
     <tr>
-        <td>1</td>
+        <td>{{forloop.counter}}</td>
         <td>{{stu.name}}</td>
         <td>{{stu.age}}</td>
         <td>{{stu.mobileno}}</td>
-    </tr>
+    </tr>   
+    {% empty %}
+    <h2>No Student Enrolled in this Course!!</h2>
     {% endfor %}
 </table>
 </form>
