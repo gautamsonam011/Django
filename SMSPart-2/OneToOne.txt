@@ -1,0 +1,108 @@
+One to One Relationship:-
+-----------------------------------
+Student
+-------------------------
+name=
+age
+---------------------------------
+s=Student()
+s.name="ravi"  -> what is the address of ravi??? 
+s.age=34
+s.save()
+------------------------
+PersonalDetail
+------------------
+address=
+mobileno=
+student=models.OnetoOneField(Student,null=True,blank=True)
+------------------------------------------------------------------------
+p=PersonalDetail()
+p.address="noida"
+p.mobileno="343434"
+p.student=s
+p.save() ->> ravi
+--------------------------
+address  mobileno   student_id
+noida     343343       1
+--------------------------------------------------
+what is the name of student whose address is noida.
+>>>p.address -> noida
+>>>p.student.name -> ravi
+>> p.student.age ->
+---------------------------------------------
+what is the address of ravi?
+--------------------------------------
+s=Student()
+s.name ->> ravi
+s.personaldetail.address -> noida
+s.personaldetail.mobileno ->343434
+-------------------------------------------
+Many to Many RelationShip:-
+-----------------------------------------------
+First of all Add course using Terminal:-
+----------------------------------------------------
+>>> c=Course()
+Traceback (most recent call last):     
+  File "<console>", line 1, in <module>
+NameError: name 'Course' is not defined
+>>> from SMS.models import Course
+>>> c=Course()
+>>> c.name='Python' 
+>>> c.save()
+>>> Course.objects.create(name='Java') 
+<Course: Java>
+>>> Course.objects.create(name='Dot Net') 
+<Course: Dot Net>
+>>> Course.objects.create(name='ML')      
+<Course: ML>
+---------------------------------------------------------
+Student:-
+----------------
+1  prayas  -> p ,dotnet
+2  vikas -> java
+3  pankaj ->    dotnet
+4  ashish  -> p , java
+--------------------------------
+Course
+------------
+1  python
+2  java
+3  dot net
+4  ml
+--------------------
+s1=Student.objects.get(id=1) -> prayas
+s2=Student.objects.get(id=4) -> ashish
+c=Course.objects.get(id=1) c.name -> python
+c.students.add(s1,s2)
+
+s3=Student.objects.get(id=3) -> pankaj
+c=Course.objects.get(id=3) -> dot net
+c.students.add(s1,s3)
+------------------------------------
+id    cid   sid
+------------------------------------
+1      1     1
+2      1     4
+3      3     1 
+4      3     3 
+5      2     2
+6      2     4 
+--------------------------------------- 
+Course - Student:-
+-----------------------------
+c=Course.objects.get(id=1) 
+c.name ->> python  ->> how many students enroll in python course?
+s=c.students.all()
+----------------------------
+Student-Course:-
+-----------------------
+s=Student.objects.get(id=1)
+s.name -> prayas
+c=s.course_set.all()  
+----------------------------
+d1={1:'Apple','name':'ravi'}
+
+
+d1['age']=34
+
+d1={1:'Apple','name':'ravi','age':34}

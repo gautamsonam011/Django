@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course</title>
+</head>
+<body bgcolor="powderblue">
+    <form method="post">
+        {% csrf_token %}
+    <h1> *COURSE WISE STUDENT DETAILS* </h1>
+    Select Course:
+    <select name="courses">
+        {% for course in courses %}
+        <option value="{{course.id}}">{{course.name}}</option>
+       {% endfor %}
+    </select>
+<button>Get Student Details</button>
+<br/><br/>
+<table>
+    <tr>
+        <th>S.NO.</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Mobile Number</th>
+    </tr>
+    {% for stu in students %}
+    <tr>
+        <td>1</td>
+        <td>{{stu.name}}</td>
+        <td>{{stu.age}}</td>
+        <td>{{stu.mobileno}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
