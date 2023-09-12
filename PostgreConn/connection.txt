@@ -1,0 +1,65 @@
+In Django we can directly connect with any database:-
+Today let me discuss how to connect with postgreSQL -  
+1. Install PostgreSql in your computer.
+https://www.postgresql.org/download/windows/
+2. Settings.py -> write postgre related settings.
+ DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'DBTest',                      
+        'USER': 'postgres',
+        'PASSWORD': 'joshi',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+---------------------------------------------------------------------------------
+3. pip install postgres
+----------------------------------------------------------------------------------
+4. Now Perform Migrations:-
+python manage.py makemigrations
+python manage.py migrate
+---------------------------------------------------------------------------------
+Relationship between Models:-
+---------------------------------------------------------
+Student - Course -> Many to Many
+1S -> Many Course
+1C -> Many Student
+--------------------------------------------
+Student - PersonalDetail -> One to One
+--------------------------------------------
+Student - PaymentDetails -> One to Many.
+--------------------------------------------
+1. Create an App -> SMS
+python manage.py startapp app_name
+2. Register your app.
+3. Url Mapping.
+-------------------------------------------------
+auto_now_add()  -> createddate ->  2022-09-07 18:10:23.615394  | 2022-09-07 18:10:23.615394
+auto_now()      -> lastupdateddate -> 2022-09-07 18:10:23.615394 |  2022-09-07 18:11:47.848521
+-------------------------------------------------------------------------------------------------
+In Django relationship can be maintained by Following Model Fields which are as follows:-
+1. OnetoOneField()
+2. ForeignKey() -> one to many or many to one.
+3. ManytoManyField()
+-----------------------------------------------------------------------------------------
+Foreign Key -
+-----------------------
+Student
+PaymentDetails
+----------------------------------------------------
+student=models.ForeignKey(Student,null=False,blank=False,on_delete=models.CASCADE)
+----------------------------------------------------------------------------------------
+sid sname  age
+1   ashish  19
+-----------------------
+paymentdetails
+--------------------------
+pid amount   paymentdate   student_id
+--------------------------------------------
+1   3000      khjkj          1
+2   4000       lkjl          1
+3   4500       kljkl         1
+--------------------------------------------------------- 
+on_delete=models.CASCADE ->> when you delete one student record automatically its all paymentdetails gets deleted from PaymentDetails.
+---------------------------------------------------------------------------------------
