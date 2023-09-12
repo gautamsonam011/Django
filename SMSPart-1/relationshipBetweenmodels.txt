@@ -1,0 +1,58 @@
+Relationship Between Models:-
+----------------------------------------------
+class Student(models.Model):
+    name=models.CharField(max_length=50,null=False,blank=False)
+    age=models.IntegerField()
+    mobileno=models.CharField(max_length=20)
+    dob=models.DateField(null=True,blank=True)
+    pic=models.ImageField(null=True,blank=True)
+    created_date=models.DateTimeField(auto_now_add=True)
+    last_updated_date=models.DateTimeField(auto_now=True)
+    def _str_(self):
+        return self.name
+-----------------------------------------
+s=Student()
+s.name="vikash"
+s.age=23
+s.mobileno='877868'
+s.save() ->> vikash added ->> 5000
+---------------------------------------------------------------
+p1=PaymentDetails()
+p1.amount=5000
+p1.payment_mode='Debit Card'
+p1.student=s ->>> 
+p1.save()
+---------------------------------------------
+class PaymentDetails(models.Model):
+    amount=models.IntegerField()
+    payment_mode=models.CharField(max_length=200,choices=[('Cash','Cash'),('Debit Card','Debit Card'),('Credit Card','Credit Card'),('PayTM','PayTM')])
+    payment_date=models.DateTimeField(auto_now=True)
+    student=models.ForeignKey(Student,null=False,blank=False,on_delete=models.CASCADE)
+--------------------------------------------------------------------------------
+One to Many ->> ForeignKey
+-------------------------------------------------
+paymentDetails to Student
+-------------------
+PaymentDetails
+-----------------------
+p1=PaymentDetails.objects.get(id=1)
+p1.amount ->> 5000 ->>> What is the name of this student who pay 5000 ?
+p1.payment_mode ->> Debit Card
+p1.student.name ->>>  vikash
+p1.student.age ->>
+------------------------------------------------------------
+Student to Payment Details:-
+----------------------------------------------------
+s=Student.objects.get(id=2)
+s.name -> vikash
+s.age  -> 23
+allp=s.paymentdetails_set.all()     -> Due to relationship
+allp
+---------------------------------------------------------------------------
+Many to Many Relationship:-
+--------------------------------------
+Student
+---------------------
+Course
+---------------------------------------------
+id cid sid

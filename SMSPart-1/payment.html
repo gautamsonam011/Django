@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+
+            background-color: rgb(78, 115, 78);
+        }
+        h1{
+            text-align: center;
+            color:crimson;
+        }
+    </style>
+</head>
+<body>
+    <!-- One To Many RelationShip  -->
+    <form method="post">
+        {% csrf_token %}
+        <h1>Student Wise Payment Details</h1>
+        <label>Enter Student ID:</label>
+        <input type="text" name="txtid">
+        <button>Show Details</button>
+        <table>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Payment Mode</th>
+                <th>Payment Date</th>
+            </tr>
+            {% for pay in payments %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{stu.name}}</td>
+                <td>{{pay.amount}}</td>
+                <td>{{pay.payment_mode}}</td>
+                <td>{{pay.payment_date}}</td>
+            </tr>
+            {% empty %}
+            <h1>No Details Found!!</h1>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</html>
