@@ -1,0 +1,150 @@
+Procedure to post data without submit button:-
+---------------------------------------------------------------
+Java Script:-
+-------------------------------
+>> JS is a client-side scripting language.
+>> js can be used with html and css.
+>> js was developed by Brendan Eich.
+>> it is the product Netscape navigator.
+>> js initially named was 'Live Script'.
+>> js is a case sensitive language.
+>> <script></script> tag we used to write code in js.
+--------------------------------------------------------------------------
+1. Variable:-
+----------------------
+'var' is keyword is used to declare a variable.
+---------------------------------------------------------
+var a=5
+-----------------
+2. Operator-
+3. Conditional Statement.
+4. Loop.
+5. Function:-
+------------------------------
+function functionname()
+{
+// Block of Statements
+}
+------------------------------------------------------
+6. Events in Js:-
+--------------------------------
+onclick,ondbclick,onchange,onkeyup,onkeypress etc.
+-------------------------------------------------------------
+7. Boxes in JS:-
+--------------------
+1. alert()
+2. prompt()
+3. confirm()
+----------------------------------
+>> wap to print welcome to js.
+function hello()
+{
+alert('Welcome to JS')
+document.write("<h1>Hello Prayas</h1>")
+}
+-----------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script src="sonam.js"></script>
+</head>
+<body>
+    <button onclick="hello()">Click ME</button>
+</body>
+</html>
+------------------------------------------------------
+>> wap to input two no. and find sum.
+prompt() -> to take input from the user.
+---------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script src="sonam.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+---------------------------------------------------------------------------
+a=parseInt(prompt("Enter First Number","First Number"))
+b=parseInt(prompt("Enter Second Number","Second Number"))
+c=a+b
+alert('Sum='+c)
+----------------------------------------------------------------------------
+wap to show datetime on button click.
+-----------------------------------------------
+function pankaj()
+{
+document.getElementById("res").innerHTML=Date()  
+}
+--------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script src="sonam.js"></script>
+</head>
+<body>
+    <button onclick="pankaj()">Show</button>
+    <h2 id="res"> </h2>
+</body>
+</html>
+--------------------------------------------------------------------------------
+Assignment Questions:-
+----------------------------
+1. wap to draw calculator program in JS.
+2. wap to input any value into textbox and copy this value into another textbox.
+3. wap to input a no. and find factorial.
+4. wap to input a character and check its vowel or consonant and also count total no. of vowel or consonant.
+5. wap to input a year and find leap year or not.
+6. wap to input a no. and find armstrong no. or not.
+7. wap to input a no. and find prime no. or not.
+8. wap to input a no. and find the sum of its digit.
+9. wap to input a no. and find number is palindrome or not.
+10. wap to input a no. and find no. is BUZZ or not.
+11. wap to input two no. and find lcm or hfc.
+12. wap to input a no. and print the table.
+13. wap to input five subject marks finds the total and percentage.
+14. wap to input 10 number and print its sum and average.
+15. wap to input a no. and check its even or odd.
+---------------------------------------------------------------------------------------
+function pankaj()
+{
+    for(i=1;i<=10;i++)
+    {
+    document.write("<h1>"+i+"</h1>")
+}
+}
+-----------------------------------------------
+function pankaj()
+{
+    i=1
+    while(i<=10)
+    {
+    document.write("<h1>"+i+"</h1>")
+    i++;
+    }
+}
+--------------------------------------------
+function pankaj()
+{
+    i=1
+    do
+    {
+    document.write("<h1>"+i+"</h1>")
+    i++;
+    }
+    while(i<=10)
+}
+---------------------------------------------------------------------
