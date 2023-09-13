@@ -1,0 +1,23 @@
+1. How to submit your data to the server without submit button-
+-------------------------------------------------------------------------
+Model (Time Taken) ->> ModelForm
+----------------------------------------------------------
+Model Form:-
+-------------------
+>> Model Form is very powerful concept in django with the help of this it can automatically create html code for you.
+>>  12 fields in your registration.
+------------------------------------------------------------------
+How to work with ModelForm:-
+--------------------------
+1. Create Model. -> Student
+2. Create Model Form.
+>> right click on your app and create one python file name as filename.py
+----------------------------------------------------------------------------------
+Validation:- Before submitting data to the server we need to check all the necessary fields filled by the user correctly or not.
+-----------------------------------------------------------
+1. Client Side Validation.
+2. Server Side Validation.
+----------------------------------------------------------------------
+>> With the Help of "Model Form" you can perform both client and server side validation.
+
+Note: -> Client Side validation can be easily break by Programmer through Browser.
