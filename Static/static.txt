@@ -1,0 +1,39 @@
+Static File in Django:-
+---------------------------------------
+>> It is a collection of css,js,images and fonts.
+--------------------------------------------------------------------------
+Steps to create Static Files:-
+------------------------------------------
+1. Create a Folder name as static in your app.
+2. Create another Folder name as 'appname' inside static folder.
+3. Create another Folder name as css in your appname. ->> N number css File.
+4. Create another Folder name as js in your appname. ->> N number js File.
+5. Create another Folder name as images in your appname. ->> N number of Images.
+---------------------------------------------------------------------------------------
+Note: ->> To access static file we have predefined path i.e defined into settings -> 
+"STATIC_URL".
+------------------------------
+STATIC_URL = 'static/'    #http://127.0.0.1:8000/static/
+---------------------------------------------------------------------------------------
+STATIC_URL = 'static/'    #http://127.0.0.1:8000/static/SMS/css/rana.css
+---------------------------------------------------------------------------------------
+To Load Static file in your template write in html file at top:-
+{% load static %}
+-------------------------------------------
+<link href="http://127.0.0.1:8000/static/SMS/css/rana.css" rel="stylesheet" type="text/css"/>
+----------------------------------------------
+{% static 'SMS/css/rana.css' %}
+
+{% static 'SMS/css/rana.css' %}
+<link href="{% static 'SMS/css/rana.css' %}" rel="stylesheet"/>
+------------------------------------------------------------------------
+http://127.0.0.1:8000/static
+-------------------------------------------------------------------
+Before running the command python manage.py collectstatic first of all we need to define the 'STATIC_ROOT' in your settings.py other this error will come:-
+--------------------------------------------------------------------------
+You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+----------------------------------------------------------------------------------------------------
+BASE_DIR =>"I:\Batch10AMDjango\MyAllProjects\CetpaLiveProject" ->> it holds current project path.
+--------------------------------------------------------------------------------------------------
+BaseDIR= I:\Batch10AMDjango\MyAllProjects\CetpaLiveProject
+------------------------------------------------------------------------------
