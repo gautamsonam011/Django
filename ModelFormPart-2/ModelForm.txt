@@ -1,0 +1,46 @@
+ModelForm->>
+----------------------
+How to add dynamic html attributes in your Model after creating Model form.:-
+----------------------------------------------------------------------------------
+>> when you create model form then some attributes are missing. it gives some attributes like-
+type,name,maxlength,id,required.
+------------------------------------------------------------
+>> class,placeholder are missing when you create any html controls using ModelForm.
+-----------------------------------------------------------------------------------------
+Steps to add Dynamic Attribute in Model Form:-
+--------------------------------------------------
+1. Go to forms.py.
+2. def _init_(self,*args,**kwargs):
+        super()._init_(*args,**kwargs)
+        for field in self.fields.values():
+            field.widget.attrs["class"]="form-control"
+            field.widget.attrs["placeholder"]="First Name *"
+-------------------------------------------------------------------------------------
+Django CRUD Operation:-
+----------------------------------------------
+>> In Django CRUD operation automatically performed by Admin Panel.
+------------------------------------------------------------------------------------
+Open Admin Panel ->> http://127.0.0.1:8000/admin/
+How to login Admin Panel in DJango:-
+----------------------------------------
+1. First of all Create SuperUser:-
+python manage.py createsuperuser
+----------------------------------------------------------------
+Student
+How to add your model into Admin Panel:-
+----------------------------------------------------
+1. open admin.py
+2. write some line:-
+
+from django.contrib import admin
+from SMS.models import Student
+# Register your models here.
+
+admin.site.register(Student)
+-------------------------------------------------------------------
+Admin Panel Customization:-
+-----------------------------------------
+@admin.register(Student) -> Decorator
+class StudentAdmin(admin.ModelAdmin):
+    list_display=['name','age','mobileno']
+----------------------------------------------------------------
