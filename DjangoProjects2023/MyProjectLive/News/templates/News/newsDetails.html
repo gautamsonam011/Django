@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About News</title>
+    <style>
+        h1{
+            font-weight: bold;
+            text-align: center;
+            color: cyan;
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <h1>*** This is page of about news***</h1>
+    <!-- <h2>{{newsdetails.news_title}}</h2>
+    <p>
+        {{newsdetails.news_desc}}
+    </p> -->
+    <input type="text" name="news_title">
+    <button type="submit">Search</button>
+    {% for n in s %}
+    <h2>{{n.news_title}}</h2>
+    <p>
+        {{n.news_desc|safe}}
+    </p>
+    {% empty %}
+    This data not exits!!
+    {% endfor %}
+    <div>
+        <img src="/media/{{News.news_image}}">
+    </div>
+</body>
+</html>

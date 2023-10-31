@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvenOdd</title>
+    <style>
+        h1{
+            color: brown;
+            background-color: dimgray;
+        }
+        label{
+            color: chocolate;
+            padding: 5px;
+        }
+        button{
+            width:50px;
+            height: 20px;
+            color: darkgreen;
+            background-color: crimson;
+        }
+        input{
+            margin-top: 5px;
+            width:300px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>***~~~Check Even Number Or Odd Number~~~***</h1>
+    <form method="post">
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            Pleage Enter The Numner
+        </div>
+        {% endif %}
+        {% csrf_token %}
+        <label>Enter the number:</label>
+        <input type="text" name="num1" value="{{n}}">
+        <button type="submit">Click</button><br>
+        <input type="text" style="margin-left:8rem" value="{{c}}">
+        
+    </form>
+
+</body>
+</html>

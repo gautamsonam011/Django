@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: blue;
+            text-align: center;
+            background-color: darkgoldenrod;
+        }
+        h2{
+            color: darkslategray;
+            text-align: center;
+            
+        }
+        marquee{
+            height: 50px;
+            width: 100%;
+            padding-top: 1rem;
+            background-color: crimson;
+        }
+        marquee a{
+            text-decoration-line: none;
+            font-weight: bold;
+            color:dodgerblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>~~~~~~~~~~~~~This is marquee news~~~~~~~~~~~~</h1>
+    <marquee onmouseover="stop()" onmouseout="start()">
+        {% for news in newsData %}
+            <a href="/news/newabout/{{news.id}}"> {{news.news_title}} &nbsp &nbsp &nbsp; </a>
+            <!-- <h2>*** Welcome To Here *** &nbsp; </h2> -->
+        {% endfor%}
+    </marquee> 
+</body>
+</html>

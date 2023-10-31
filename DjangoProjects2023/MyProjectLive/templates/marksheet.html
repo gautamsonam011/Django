@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarkSheet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        h1 {
+            color: brown;
+            text-align: center;
+            background-color: dimgray;
+        }
+
+        label {
+            font-weight: bold;
+            color: darkslategray;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: medium;
+        }
+
+        button {
+            margin: 10px;
+            font-weight: bold;
+            border-style: none;
+            font-family: 'Courier New', Courier, monospace;
+            color: crimson;
+            background-color: lightgreen;
+            box-shadow: 0 2px 4px darkslategray;
+        }
+
+        button:hover {
+            color: cadetblue;
+            background-color: coral;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>***~~~Marksheet~~~***</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form method="post">
+                    {% csrf_token %}
+                    <label>Subject1</label>
+                    <input type="text" name="subject1" value="{{s1}}" class="form-control">
+                    <label>Subject2</label>
+                    <input type="text" name="subject2" value="{{s2}}" class="form-control">
+                    <label>Subject3</label>
+                    <input type="text" name="subject3" value="{{s3}}" class="form-control">
+                    <label>Subject4</label>
+                    <input type="text" name="subject4" value="{{s4}}" class="form-control">
+                    <label>Subject5</label>
+                    <input type="text" name="subject5" value="{{s5}}" class="form-control">
+
+                    <button type="submit">Marksheet</button><br>
+                    <label>Total</label>
+                    <input type="text" name="total" value="{{total}}" class="form-control">
+                    <label>Percentage</label>
+                    <input type="text" name="per" value="{{per}}" class="form-control">
+                    <label>Division</label>
+                    <input type="text" name="div" value="{{div}}" class="form-control">
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

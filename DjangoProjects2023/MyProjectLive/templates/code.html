@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codes</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        h1{
+            color: chocolate;
+            background-color: cornflowerblue;
+        }
+        h4{
+            color: crimson;
+            background-color: darkgrey;
+        }
+    </style>
+</head>
+<body>
+    <h1>~~~~~~~~~Welcome To DTL(Django Template Language)~~~~~~~~~</h1>
+    <!-- Dictionary -->
+    {% for a in student_details%}
+    <h4>Counter</h4>
+    <div>{{forloop.counter}} {{a}}</div>
+    <h4>Counter0</h4>
+    <div>{{forloop.counter0}} {{a}}</div>
+    <h4>Reverse Counter</h4>
+    <div>{{forloop.revcounter}} {{a}}</div>
+    <h4>Reverse Counter0</h4>
+    <div>{{forloop.revcounter0}} {{a}}</div>
+    {% endfor %}
+    <!-- List-------->  
+    {% for n in list%}
+    <h4>Counter</h4>
+    <div>{{forloop.counter}} {{n}}</div>
+    <h4>Counter0</h4>
+    <div>{{forloop.counter0}} {{n}}</div>
+    <h4>Reverse Counter</h4>
+    <div>{{forloop.revcounter}} {{n}}</div>
+    <h4>Reverse Counter0</h4>
+    <div>{{forloop.revcounter0}} {{n}}</div>
+    <div>{{forloop.first}} {{n}}</div>
+    <div>{{forloop.last}} {{n}}</div>
+    {% endfor %}
+
+    <!-- Table  -->
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>Mobile Number</th>
+        </tr>
+        {% for i in student_details %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.phone}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% if number|length > 0 %}
+        {% for n in number %}
+        <!-- IF Statement  -->
+            {% if n > 20  %}
+            <div>{{n}}</div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        No Data Found
+    {% endif %}
+
+    
+    
+</body>
+</html>
