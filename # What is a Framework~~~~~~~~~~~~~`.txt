@@ -1,0 +1,341 @@
+# What is a Framework?~~~~~~~~~~~~~`````>
+
+* A framework is a particular set of rules, ideas, or beliefs which you use in order to deal with problems or to decide what to do.
+
+# What is a django?~~~~~~~~~~~~~~~~~>
+
+1:- Django is basically a high-level python application framework that enables the rapid development of webapplications.
+2:- Open-source python frameworks.
+3:- Follows the model-view-template architectural pattern.
+4:- Most popular python framework.
+
+# Why django?~~~~~~~~~~~~~~~~>
+
+1:- It's fast and simple.
+2:- It's secure
+3:- It suits any web application project.
+4:- It's well-established
+5:- MVT Support and Object-oriented.
+6:- Built-In Authentication and Authorization.
+7:- Packaging System.
+
+# Which companies uses django?~~~~~~~~~~~~~~~~~~~~~>
+
+1:- YouTube
+2:- Disqus
+3:- Instagram
+4:- Spotify
+5:- The Whasington Post
+6:- Bitbucket
+7:- Dropbox
+8:- Mozila
+
+# Prereuisite & Inside the Course?~~~~~~~~~~~~~~~~~~~~~~~>
+
+* What you will learn?------------>
+1:- Course Prerequisites:---->
+
+. Understanding the indentation and syntax of Python.
+. No prior Django Knowledge is required.
+. Programming control structures like conditional loops.
+. HTML, CSS, and Javascript are the fundamental building blocks of web development. Hence you must possess good knowledge about it.
+
+2:- What's Inside the Course?--->
+
+. Setup & Understanding Django Projects.
+. URLs, Routes & Views
+. Templates & Static Files
+. Data, Models & Relationships
+. Working with Forms
+. Class-based Views
+. File Uploads
+. Sessions
+. Cookies
+. Many Small Examples
+. A Real Project (Building a Blog)
+. Frontend + Admin Area
+. In- Depth Deployment Guide
+. Ecommerce
+
+# MVT (Model View Template):----------------------->
+
+1:- The MVT (Model View Template) is a software design pattern.
+2:- It is a collection of three important components Model View and Template.
+3:- Model:-> Model is going to act as the interface of your data.
+4:- View:-> The view is the user interface - what you see in your browser when you render a website.
+5:- Template:-> A template consists of static parts of the desired HTML output as web Some special syntax describing how dynamic content will be inserted.
+
+Flow Chart of MVT:-------->
+
+User =>  django => URL =>View => Model
+     <=        <=      <=     <=
+                                Template
+
+# what is command to install django?
+
+. pip install django
+. django-admin --version
+. pip freeze
+
+How to create project?
+django-admin startproject mysite
+
+# What is Development Server and How to it run in Django?~~~~~~~~~~~~~~~~``>
+
+* python manage.py runserver
+
+# How to Create Folder for Djngo Application:~~~~~~~~~~~~~~~~~~`?
+
+* Python Django Structure:----------->
+
+Templates Folder
+Static Folder
+Media Folder
+
+# How to migrate default migrations:~~~~~~~~~~~~~~~~~~~~~~~~>
+
+1:- python manage.py makemigrations
+2:- python manage.py migrate
+
+# What is Superuser in Django and How to Create it?~~~~~~~~~~~~~~~~~~~~~~>
+commands:-
+* python manage.py createsuperuser
+
+
+URLs(Route):~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+
+https://www.wscu.com/              => Show Starting Page
+https://www.wscube.com/blog/       => Show list of all posts
+https://mypage.com/blog/siglepost  => Show specify post
+
+Views:~~~~~~~~~~~~~~~~>
+
+The logic is executed for different URLs (https Method)
+
+Functions              Class
+Prepare and return response data(eg. HTML)
+
+
+How to create URLs and Views:~~~~~~~~~~~~~>
+
+from django.contrib import admin
+from django.urls import path
+from .views import *
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('home/',home),
+    path('about/',about_us),
+]
+
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome To Home Page!!")
+def about_us(request):
+    return HttpResponse("Welcome To Here!!")
+
+
+~~~~~~~~~~~~~~Create Dynamic URLs in Django:~~~~~~~~~~~~~~~~
+
+int
+str
+slug     hello-ws-iip
+
+~~~~~~~~~~~~~~~Render a HTML Template as Response~~~~~~~~~~~
+from django.shortcuts import render
+
+resp = render(request,"index.html")
+
+~~~~~~~~~~~Passing Data from a django view to a template~~~~
+
+forloop.counter
+forloop.counter0
+forloop.revcounter
+forloop.revcounter0
+forloop.first              =>True if this is the first time through the loop.
+forloop.last               =>True if this is the last time through the loop.
+
+What is IF Else Statement and Elif in django Template:~~~~~>
+
+{% if condition %}
+	block code
+{% endif %}
+
+{% if condition %}
+	code
+{% else %}
+	code
+{% endif %}
+
+~~~~~~~~~~~~What is CSS, Javascript and Images in Django and How to use them:~~~~~~~~~~~
+
+managing static files (e.g:- images, javascript, css, staticfiles_dirs)
+
+~~~~~~~~~Header and Footer in Django HTML Template(Fix Header and Footer):~~~~~~~~~~>include
+
+{% include "header.html" %}
+
+{% include "footer.html" %}
+
+~~~~~~~~~~~extends-Django Template Tags:~~~~~~~~~~~~~~~~~
+create a base.html file
+
+{% extends 'base.html' %}
+{% block content %}
+
+	extends codes
+
+{% endblock %}
+base.html:-
+
+{% include "header.html" %}
+
+{% block content %}
+
+{% endblock %}
+
+{% include "footer.html" %}
+
+# What are URL Template Tags in Django and How to Use It:~~~~~~~~>
+for add html pages
+
+path("abou/",dbvh, name="about")
+
+<li><a href="{% url 'about'%}></a></li>
+
+~~~~How to Highlight active links in Django:~~~~~~~~~~~~~
+
+<li {% if request.path == 'about' %} active {% endif %}><a href={% url 'about' %} ></a></li>
+
+# ~~~~~~~~What are HTTP Request Methods in Django:~~~~~~~~~~~~~~~~
+
+* 1:-> GET Method:--------->
+	
+1:- The GET method sends the encoded user information appended to the page request. The page and the encoded information are separated by the? character.
+2:- https://www.whello.com/index.php?name1=value1&name2=value2
+3:- Restricted to send upto 1024 characters only.
+4:- Never use GET method if you have password or other sensitive information.
+5:- Cannot be used to send binary data, like images or word documents, to the server.
+
+* 2:-> POST Method"--------->
+
+1:- The POST method transfers information via HTTP headers. The information is encoded as described in case of GET method and put into a header called QUERY_STRING.
+2:- Does not have any restriction on data size to be sent.
+3:- Can be used to send ASCII as well as binary data.
+4:- The data sent sent by POST method goes through HTTP header so security depends on HTTP protocol.
+5:- By using secure HTTP you can make sure that your information is secure.
+
+~~~~~~~~~~~~~~~~~~Implement GET Method Form ~~~~~~~~~~
+
+def userForm(request):
+    final = 0
+    try:
+        # n1 = int(request.GET['num1'])
+        # n2 = int(request.GET['num2'])
+        n1 = int(request.GET.get('num1'))
+        n2 = int(request.GET.get('num2'))
+        print(n1+n2)
+        final = n1+n2
+        d1 = {'op':final}
+    except:
+        pass
+    resp = render(request,"form.html",context=d1)
+    return resp
+
+~~~~~~~~~~POST Method with CSRF Token:~~~~~~~~~~~~~~~~
+
+<form method = "post">
+{% csrf_token %}
+<input type="text" class="form-control" value="{{op}}">
+</form>
+
+~~~~~~~~~~~~~~~~~~What is Redirection and How to Redirect Page~~~~~~~~~~~
+
+from django.http import HttpResponseRedirect
+
+return HttpResponseRedirect("/code/")
+
+~~~~~~~~~~~~~~Django HTML Form Action URL~~~~~~~~~~~~~~~
+
+<form method="post" action="{% url 'index' %}">
+
+~~~~Manual Form Validation:~~~~
+if request.POST.get('num1') == "":
+            return render(request, "evenOdd.html",{'error':True})
+
+{% if error %}
+        <div class="alert alert-danger" role="alert">
+            Pleage Enter The Numner
+        </div>
+        {% endif %}
+
+ ~~~~~~~~~~~~~~~~~~Model in Django~~~~~~~~~~~~~~~~~~~
+
+how to create table:-
+python manage.py makemigrations
+python manage.py migrate
+
+command for create app:-
+python manage.py startapp appname
+
+~~~~~~~~~~~~How to Create a model~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~Get all table data in Django|Objects.all()~~~
+
+sData = Service.objects.all()
+
+~~~~~~~~~~~Order a Query in Ascending or Descending~~~~~~~~
+
+- before column name mean descending order without -mean ascending
+
+sData = Service.objects.all().order_by('-service_title') #or('-id')
+
+~~~~~~~~~~~~~Limiting Query Results~~~~~~~~~~~~~
+
+sData = Service.objects.all().order_by('-service_title')[:3]
+
+~~~~~~~~~~~~~~~Template filters in Django~~~~~~~~~~~~~~~
+
+safe keyword use for data filter
+<p>
+	{{n.service_desc|safe}}
+</p>
+
+~~~~~~~~~~~~~~~~~~~Django TinyMCE Editor integration with news app~~~~~~~
+
+pip install django-tinymce
+
+from django.contrib import admin
+from News.models import News
+# Register your models here.
+
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ('news_title','news_des')
+    
+admin.site.register(News,NewsAdmin)
+
+~~~~~~~~~~~~Display News in Marquee tag~~~~~~~~~~~~~~~~~
+
+<marquee behaviuor="ltr">
+       <h2>*** Welcome To Here ***</h2>
+</marquee> 
+
+~~~~~Display News in Detail Page with Dynamic URL~~~~~~~~~~~~
+
+~~~~~~~~~Learn How to Reset Dejango Admin Password~~~~~~~~~
+
+python manage.py changepassword username
+
+~~~~~~~~~~How does filter work in Django~~~~~~~~~```````
+
+~~~~~~~~~Django AutoSlugField~~~~~~
+pip install django-autoslug
+
+~~~~~~~~~~How to add pagination in django project~~~~~~~~~
+from django.core.paginator import Paginator
+
+
+
+
+
